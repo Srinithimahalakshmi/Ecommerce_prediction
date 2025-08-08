@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ecommerce Spend Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Predict Yearly Amount Spent</h1>
+    <form method="post" action="/predict">
+        <input type="number" name="session_length" step="0.01" placeholder="Avg. Session Length" required><br>
+        <input type="number" name="time_on_app" step="0.01" placeholder="Time on App" required><br>
+        <input type="number" name="time_on_website" step="0.01" placeholder="Time on Website" required><br>
+        <input type="number" name="membership_length" step="0.01" placeholder="Length of Membership" required><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
